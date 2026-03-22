@@ -133,7 +133,8 @@ test('calculates square root of 0', () => {
   assert.strictEqual(squareRoot(0), 0);
 });
 test('calculates square root of a non-perfect square', () => {
-  assert.ok(Math.abs(squareRoot(2) - 1.4142135623730951) < 1e-10);
+  // Math.sqrt(2) ≈ 1.4142135623730951
+  assert.ok(Math.abs(squareRoot(2) - Math.sqrt(2)) < 1e-10);
 });
 test('throws error for negative number square root', () => {
   assert.throws(() => squareRoot(-1), /Cannot calculate square root of a negative number/);

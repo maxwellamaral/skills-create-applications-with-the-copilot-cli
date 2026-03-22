@@ -106,6 +106,15 @@ if (require.main === module) {
   const num1 = parseFloat(args[1]);
   const num2 = args[2] !== undefined ? parseFloat(args[2]) : undefined;
 
+  if (isNaN(num1)) {
+    console.error(`Error: '${args[1]}' is not a valid number`);
+    process.exit(1);
+  }
+  if (args[2] !== undefined && isNaN(num2)) {
+    console.error(`Error: '${args[2]}' is not a valid number`);
+    process.exit(1);
+  }
+
   let result;
   try {
     switch (operation) {
