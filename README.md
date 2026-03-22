@@ -1,61 +1,61 @@
-# Create applications with the Copilot CLI
+# Crie aplicações com o Copilot CLI
 
-_Learn to use GitHub Copilot CLI—a standalone terminal application—for issue management and building a Node.js calculator application._
+_Aprenda a usar o GitHub Copilot CLI—um aplicativo de terminal independente—para gerenciamento de issues e criação de um aplicativo de calculadora Node.js._
 
-## Welcome
+## Bem-vindo
 
-- **Who is this for**: Developers who want to learn how to use the standalone GitHub Copilot CLI to streamline their development workflow
-- **What you'll learn**: How to install and use GitHub Copilot CLI as a standalone terminal tool for creating issues, generating code, and collaborating interactively from the command line
-- **What you'll build**: A Node.js calculator app using Copilot CLI for project setup, issue management, and collaborative development
-- **Prerequisites**:
-  - Familiarity with basic command line (CLI) operations
-  - Basic knowledge of GitHub repositories
-  - Node.js version 22 or later (for Copilot CLI installation)
-  - A GitHub Copilot subscription (Pro, Pro+, Business, or Enterprise)
+- **Para quem é**: Desenvolvedores que desejam aprender a usar o GitHub Copilot CLI standalone para otimizar seu fluxo de trabalho de desenvolvimento
+- **O que você aprenderá**: Como instalar e usar o GitHub Copilot CLI como uma ferramenta de terminal standalone para criar issues, gerar código e colaborar interativamente pela linha de comando
+- **O que você vai construir**: Um aplicativo de calculadora Node.js usando o Copilot CLI para configuração de projeto, gerenciamento de issues e desenvolvimento colaborativo
+- **Pré-requisitos**:
+  - Familiaridade com operações básicas de linha de comando (CLI)
+  - Conhecimento básico de repositórios GitHub
+  - Node.js versão 22 ou posterior (para instalação do Copilot CLI)
+  - Uma assinatura do GitHub Copilot (Pro, Pro+, Business ou Enterprise)
 
-- **How long**: This exercise takes less than 60 minutes to complete.
+- **Duração**: Este exercício leva menos de 60 minutos para ser concluído.
 
-In this exercise, you will:
+Neste exercício, você irá:
 
-1. Learn to install the standalone Copilot CLI and use an issue template
-1. Use Copilot CLI to create an issue for a Node.js calculator app from an existing template
-1. Practice iterative development by working together with Copilot on the command line
+1. Aprender a instalar o Copilot CLI standalone e usar um modelo de issue
+1. Usar o Copilot CLI para criar uma issue para um aplicativo de calculadora Node.js a partir de um modelo existente
+1. Praticar o desenvolvimento iterativo trabalhando em conjunto com o Copilot na linha de comando
 
-### What's New in Copilot CLI
+### Novidades no Copilot CLI
 
-GitHub Copilot CLI is a standalone terminal application with exciting features:
-- **Latest AI models**: Access the newest models from OpenAI and Google
-- **Custom agents**: Create specialized agent personas for your workflows using `.github/agents/`
-- **`/delegate` command**: Delegate tasks to Copilot coding agent which works autonomously
-- **`/share` command**: Save chat sessions as Markdown files or GitHub gists
-- **Better image support**: Add images via paste and drag-and-drop
-- **MCP server support**: Integrate with Model Context Protocol tools
-- **Improved reliability**: Better handling of long-running commands and enhanced automation with headless `-p` mode
+O GitHub Copilot CLI é um aplicativo de terminal standalone com recursos incríveis:
+- **Modelos de IA mais recentes**: Acesse os modelos mais recentes da OpenAI e Google
+- **Agentes personalizados**: Crie personas de agentes especializados para seus fluxos de trabalho usando `.github/agents/`
+- **Comando `/delegate`**: Delegue tarefas ao agente de codificação do Copilot, que trabalha de forma autônoma
+- **Comando `/share`**: Salve sessões de chat como arquivos Markdown ou gists do GitHub
+- **Melhor suporte a imagens**: Adicione imagens via colar e arrastar e soltar
+- **Suporte a servidores MCP**: Integre-se com ferramentas do Model Context Protocol
+- **Maior confiabilidade**: Melhor tratamento de comandos de longa duração e automação aprimorada com o modo headless `-p`
 
 
-### How to start this exercise
+### Como iniciar este exercício
 
-Simply copy the exercise to your account, then give your favorite Octocat (Mona) **about 20 seconds** to prepare the first lesson, then **refresh the page**.
+Simplesmente copie o exercício para sua conta, aguarde aproximadamente **20 segundos** para Mona preparar a primeira lição e, em seguida, **atualize a página**.
 
-[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills&template_name=create-applications-with-the-copilot-cli&owner=%40me&name=skills-create-applications-with-the-copilot-cli&description=Exercise:+Create+Applications+with+the+Copilot+CLI&visibility=public)
+[![](https://img.shields.io/badge/Copiar%20Exerc%C3%ADcio-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills&template_name=create-applications-with-the-copilot-cli&owner=%40me&name=skills-create-applications-with-the-copilot-cli&description=Exercise:+Create+Applications+with+the+Copilot+CLI&visibility=public)
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>Tendo problemas? 🤷</summary><br/>
 
-When copying the exercise, we recommend the following settings:
+Ao copiar o exercício, recomendamos as seguintes configurações:
 
-- For owner, choose your personal account or an organization to host the repository.
+- Para o proprietário, escolha sua conta pessoal ou uma organização para hospedar o repositório.
 
-- We recommend creating a public repository, since private repositories will use Actions minutes.
+- Recomendamos criar um repositório público, pois repositórios privados consumirão minutos do Actions.
 
-If the exercise isn't ready in 20 seconds, please check the [Actions](../../actions) tab.
+Se o exercício não estiver pronto em 20 segundos, verifique a aba [Actions](../../actions).
 
-- Check to see if a job is running. Sometimes it simply takes a bit longer.
+- Verifique se há um job em execução. Às vezes demora um pouco mais.
 
-- If the page shows a failed job, please submit an issue. Nice, you found a bug! 🐛
+- Se a página mostrar um job com falha, envie uma issue. Que ótimo, você encontrou um bug! 🐛
 
 </details>
 
 ---
 
-&copy; 2026 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+&copy; 2026 GitHub &bull; [Código de Conduta](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [Licença MIT](https://gh.io/mit)

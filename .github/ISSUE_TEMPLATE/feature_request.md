@@ -1,23 +1,23 @@
 ---
-name: Feature Request
-about: Suggest a new feature or enhancement for the calculator
+name: Solicitação de Funcionalidade
+about: Sugira uma nova funcionalidade ou melhoria para a calculadora
 title: ''
 labels: enhancement
 assignees: ''
 ---
 
-## Feature Description
+## Descrição da Funcionalidade
 
-A clear and concise description of the feature you'd like to see.
+Uma descrição clara e concisa da funcionalidade que você gostaria de ver.
 
-## Use Case
+## Caso de Uso
 
-Describe the use case or problem this feature would solve.
+Descreva o caso de uso ou problema que esta funcionalidade resolveria.
 
-## Proposed Solution
+## Solução Proposta
 
-How do you envision this feature working?
+Como você imagina que essa funcionalidade funcionaria?
 
-## Additional Context
+## Contexto Adicional
 
-Add any other context, screenshots, or examples about the feature request here.
+Adicione qualquer outro contexto, capturas de tela ou exemplos sobre a solicitação de funcionalidade aqui.
