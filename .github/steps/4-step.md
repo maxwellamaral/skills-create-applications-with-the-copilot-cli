@@ -1,56 +1,56 @@
-## Step 4: Create, Review, and Merge Your Pull Request
+## Passo 4: Criar, Revisar e Mesclar seu Pull Request
 
-Duck is ready to finalize the development work by creating a pull request, linking it to both issues, getting a review from Copilot, and merging the changes—all from the command line with Copilot CLI.
+Duck está pronto para finalizar o trabalho de desenvolvimento criando um pull request, vinculando-o às duas issues, obtendo uma revisão do Copilot e mesclando as alterações—tudo pela linha de comando com o Copilot CLI.
 
-### 📖 Theory: Pull Requests and Code Review with Copilot CLI
+### 📖 Teoria: Pull Requests e Revisão de Código com o Copilot CLI
 
-#### Understanding Pull Requests (PRs)
+#### Entendendo Pull Requests (PRs)
 
-Pull requests are the standard way to propose changes in collaborative development:
+Pull requests são a forma padrão de propor alterações no desenvolvimento colaborativo:
 
-- They allow team members to review code before merging
-- They maintain a history of changes and decisions
-- They can be linked to issues for better project tracking
-- They enable automated testing and validation through CI/CD
+- Permitem que membros da equipe revisem o código antes de mesclar
+- Mantêm um histórico de alterações e decisões
+- Podem ser vinculados a issues para melhor rastreamento do projeto
+- Habilitam testes automatizados e validação por meio de CI/CD
 
-#### Connecting PRs to Issues
+#### Conectando PRs a Issues
 
-Linking pull requests to issues helps with project management:
+Vincular pull requests a issues ajuda no gerenciamento de projetos:
 
-- Closes issues automatically when the PR is merged
-- Provides traceability between work items and code changes
-- Helps track progress through the development lifecycle
-- Improves team communication about what's being built
+- Fecha issues automaticamente quando o PR é mesclado
+- Fornece rastreabilidade entre itens de trabalho e alterações de código
+- Ajuda a acompanhar o progresso ao longo do ciclo de desenvolvimento
+- Melhora a comunicação da equipe sobre o que está sendo construído
 
-#### Code Review with AI Assistance
+#### Revisão de Código com Assistência de IA
 
-GitHub Copilot can act as a reviewer to:
+O GitHub Copilot pode atuar como revisor para:
 
-- Suggest improvements to code quality
-- Identify potential bugs or edge cases
-- Recommend best practices and design patterns
-- Provide constructive feedback on implementation
+- Sugerir melhorias na qualidade do código
+- Identificar possíveis bugs ou casos extremos
+- Recomendar boas práticas e padrões de design
+- Fornecer feedback construtivo sobre a implementação
 
-The Copilot CLI enables you to:
+O Copilot CLI permite que você:
 
-- Create pull requests directly from the terminal
-- Request reviews from Copilot or team members
-- Merge changes without leaving the CLI
-- Automate the entire workflow for faster iteration
+- Crie pull requests diretamente do terminal
+- Solicite revisões do Copilot ou de membros da equipe
+- Mescle alterações sem sair do CLI
+- Automatize todo o fluxo de trabalho para iterações mais rápidas
 
-#### References
+#### Referências
 
-- [Creating Pull Requests with GitHub CLI](https://cli.github.com/manual/gh_pr_create)
-- [Linking Issues and PRs](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)
-- [GitHub Copilot as a Code Reviewer](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review)
+- [Criando Pull Requests com o GitHub CLI](https://cli.github.com/manual/gh_pr_create)
+- [Vinculando Issues e PRs](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)
+- [GitHub Copilot como Revisor de Código](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review)
 
 > [!IMPORTANT]
-> If you have restarted your codespace you may need to run `copilot --allow-all` and then authenticate with GitHub again by running `!gh auth login` in your terminal,
-> or use `!gh auth login` from within the Copilot CLI session.
+> Se você reiniciou seu codespace, pode ser necessário executar `copilot --allow-all` e autenticar-se com o GitHub novamente executando `!gh auth login` no terminal,
+> ou usar `!gh auth login` de dentro da sessão do Copilot CLI.
 
-### ⌨️ Activity: Complete Your Pull Request Workflow
+### ⌨️ Atividade: Completar seu Fluxo de Trabalho de Pull Request
 
-1. Start an interactive Copilot CLI session (if not already in a session):
+1. Inicie uma sessão interativa do Copilot CLI (se ainda não estiver em uma sessão):
 
    > ![Static Badge](https://img.shields.io/badge/Terminal-text?logo=gnometerminal&labelColor=0969da&color=ddf4ff)
    >
@@ -58,65 +58,65 @@ The Copilot CLI enables you to:
    > copilot --allow-all --enable-all-github-mcp-tools
    > ```
 
-2. Create a pull request for your changes and add Copilot as a reviewer:
+2. Crie um pull request para suas alterações e adicione o Copilot como revisor:
 
    > ![Static Badge](https://img.shields.io/badge/CLI-Prompt-text?style=flat-square&logo=github-copilot&labelColor=8250df&color=fbefff)
    >
    > ```prompt
-   > Create a pull request from the current branch with a title "Add calculator enhancements" 
-   > and description that includes the main changes: basic calculator operations and expanded 
-   > functionality with modulo, power, and square root. Make sure to add @copilot as a reviewer 
-   > and request a review on the PR.
-   > List the PR link when it is completely created
+   > Crie um pull request da branch atual com o título "Add calculator enhancements"
+   > e uma descrição que inclua as principais alterações: operações básicas de calculadora e
+   > funcionalidade expandida com módulo, potência e raiz quadrada. Certifique-se de adicionar @copilot como revisor
+   > e solicitar uma revisão no PR.
+   > Liste o link do PR quando estiver completamente criado
    > ```
 
-3. Attach the pull request to both issues you created earlier:
+3. Vincule o pull request às duas issues criadas anteriormente:
 
    > ![Static Badge](https://img.shields.io/badge/CLI-Prompt-text?style=flat-square&logo=github-copilot&labelColor=8250df&color=fbefff)
    >
    > ```prompt
-   > Link the pull request I just created to both the "Create a calculator" and 
-   > "Add more operations" issues so they close automatically when merged.
+   > Vincule o pull request que acabei de criar às issues "Create a calculator" e
+   > "Add more operations" para que sejam fechadas automaticamente quando mescladas.
    > ```
 
-1. Merge the pull request after Copilot's review is complete:
+1. Mescle o pull request após a revisão do Copilot estar concluída:
 
    > ![Static Badge](https://img.shields.io/badge/CLI-Prompt-text?style=flat-square&logo=github-copilot&labelColor=8250df&color=fbefff)
    >
    > ```prompt
-   > Merge the pull request and close the attached issues
+   > Mescle o pull request e feche as issues vinculadas
    > ```
 
 > [!NOTE]
-> When you merge a PR that's linked to issues using "Closes #<issue-number>",
-> GitHub automatically closes those issues. The squash merge option keeps your
-> main branch history clean.
+> Quando você mescla um PR vinculado a issues usando "Closes #<número-da-issue>",
+> o GitHub fecha automaticamente essas issues. A opção de merge squash mantém o
+> histórico da branch principal limpo.
 
-4. Verify that both issues are now closed:
+4. Verifique que ambas as issues estão agora fechadas:
 
    > ![Static Badge](https://img.shields.io/badge/CLI-Prompt-text?style=flat-square&logo=github-copilot&labelColor=8250df&color=fbefff)
    >
    > ```prompt
-   > List the closed issues in the repository to confirm both the "Create a calculator" 
-   > and "Add more operations" issues are now closed.
+   > Liste as issues fechadas no repositório para confirmar que as issues "Create a calculator"
+   > e "Add more operations" estão agora fechadas.
    > ```
 
-5. Wait a moment for Mona to check your work, provide feedback, and share the next lesson.
+5. Aguarde um momento para Mona verificar seu trabalho, fornecer feedback e compartilhar a próxima lição.
 
 > [!TIP]
-> Use `/share gist` in your Copilot CLI session to save your GitHub Skills exercise session
-> as a GitHub gist for documentation and future reference!
+> Use `/share gist` na sua sessão do Copilot CLI para salvar sua sessão do exercício do GitHub Skills
+> como um GitHub gist para documentação e referência futura!
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>Tendo problemas? 🤷</summary><br/>
 
-- Make sure you've committed and pushed all your changes before creating the PR
-- Verify your GitHub authentication with `gh auth status` or `!gh auth status` in Copilot CLI
-- If the PR creation fails, check that you're on a branch different from main/master
-- To manually link an issue, edit the PR description to include "Closes #<issue-number>"
-- You can view PR details with `!gh pr view` or `!gh pr list` to see your PRs
-- For issues that don't close automatically, link them manually in the GitHub web interface
-- Remember to check that Copilot's review has been submitted before merging
-- Use `!gh pr merge --squash` to merge with a clean history
+- Certifique-se de ter feito commit e enviado todas as alterações antes de criar o PR
+- Verifique sua autenticação no GitHub com `gh auth status` ou `!gh auth status` no Copilot CLI
+- Se a criação do PR falhar, verifique se você está em uma branch diferente de main/master
+- Para vincular uma issue manualmente, edite a descrição do PR para incluir "Closes #<número-da-issue>"
+- Você pode ver os detalhes do PR com `!gh pr view` ou `!gh pr list` para ver seus PRs
+- Para issues que não fecham automaticamente, vincule-as manualmente na interface web do GitHub
+- Lembre-se de verificar se a revisão do Copilot foi enviada antes de mesclar
+- Use `!gh pr merge --squash` para mesclar com um histórico limpo
 
 </details>

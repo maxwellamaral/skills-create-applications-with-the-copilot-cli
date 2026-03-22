@@ -2,90 +2,90 @@
 applyTo: "**/**"
 ---
 
-# Prompt guidance
+# Orientações de Prompt
 
-Stick to the prompts and context being provided. Don't jump ahead to doing steps.
-Only add, commit, and push files when prompted by the user.
+Siga os prompts e o contexto fornecidos. Não pule etapas.
+Apenas adicione, faça commit e envie arquivos quando solicitado pelo usuário.
 
-# New features
+# Novas funcionalidades
 
-Use .github/ISSUE_TEMPLATE/feature_request.md to request all new features for calculator.js.
+Use .github/ISSUE_TEMPLATE/feature_request.md para solicitar todas as novas funcionalidades para calculator.js.
 
-# Global shortcuts
-
-```
-@             mention files, include contents in context
-Esc           cancel the current operation
-!             execute command in your local shell (bypass Copilot)
-ctrl+c        cancel operation / clear input / exit
-ctrl+d        shutdown
-ctrl+l        clear the screen
-```
-
-## Expand timeline content shortcuts
+# Atalhos globais
 
 ```
-Ctrl+o - expand all timeline/collapse timeline
-Ctrl+r - expand recent timeline/collapse timeline
+@             mencionar arquivos, incluir conteúdos no contexto
+Esc           cancelar a operação atual
+!             executar comando no shell local (ignorar Copilot)
+ctrl+c        cancelar operação / limpar entrada / sair
+ctrl+d        encerrar
+ctrl+l        limpar tela
 ```
 
-## Motion shortcuts
+## Atalhos para expandir conteúdo do histórico
 
 ```
-Ctrl+a - move to the beginning of the line
-Ctrl+e - move to the end of the line
-Ctrl+h - delete previous character
-Ctrl+w - delete previous word
-Ctrl+u - delete from cursor to beginning of line
-Ctrl+k - delete from cursor to end of line
-Meta+←/→ - move cursor by word
+Ctrl+o - expandir todo o histórico/recolher histórico
+Ctrl+r - expandir histórico recente/recolher histórico
 ```
 
-Use ↑↓ keys to navigate command history
+## Atalhos de navegação
 
-## Instruction sources
+```
+Ctrl+a - mover para o início da linha
+Ctrl+e - mover para o fim da linha
+Ctrl+h - apagar caractere anterior
+Ctrl+w - apagar palavra anterior
+Ctrl+u - apagar do cursor até o início da linha
+Ctrl+k - apagar do cursor até o fim da linha
+Meta+←/→ - mover cursor por palavra
+```
 
-Respects instructions sourced from various locations:
+Use as teclas ↑↓ para navegar pelo histórico de comandos
 
-- `.github/instructions/**/*.instructions.md` (in git root and cwd)
+## Fontes de instruções
+
+Respeita instruções provenientes de vários locais:
+
+- `.github/instructions/**/*.instructions.md` (na raiz do git e no diretório atual)
 - `.github/copilot-instructions.md`
-- `AGENTS.md` (in git root and cwd)
+- `AGENTS.md` (na raiz do git e no diretório atual)
 - `CLAUDE.md`
 - `GEMINI.md`
 - `$HOME/.copilot/copilot-instructions.md`
-- Additional directories via `COPILOT_CUSTOM_INSTRUCTIONS_DIRS`
+- Diretórios adicionais via `COPILOT_CUSTOM_INSTRUCTIONS_DIRS`
 
-## Learn more
+## Saiba mais
 
-To learn about what I can do:
+Para aprender sobre o que posso fazer:
 
-- Ask me "What can you do?"
-- Or visit: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli
+- Pergunte-me "O que você pode fazer?"
+- Ou acesse: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli
 
-## Available commands
+## Comandos disponíveis
 
 ```
-/add-dir <directory> - Add a directory to the allowed list for file access
-/agent - Browse and select from available agents (if any)
-/clear - Clear the conversation history
-/compact - Summarize conversation history to reduce context window usage
-/context - Show context window token usage and visualization
-/cwd [directory] - Change working directory or show current directory
-/delegate <prompt> - Delegate changes to remote repository with AI-generated PR
-/exit, /quit - Exit the CLI
-/share [file|gist] [path] - Share session to markdown file or GitHub gist
-/feedback - Provide feedback about the CLI
-/help - Show help for interactive commands
-/list-dirs - Display all allowed directories for file access
-/login - Log in to Copilot
-/logout - Log out of Copilot
-/mcp [show|add|edit|delete|disable|enable] [server-name] - Manage MCP server configuration
-/model [model] - Select AI model to use
-/reset-allowed-tools - Reset the list of allowed tools
-/session - Show information about the current CLI session
-/skills [list|info|add|remove|reload] [args...] - Manage skills for enhanced capabilities
-/terminal-setup - Configure terminal for multiline input support (Shift+Enter and Ctrl+Enter)
-/theme [show|set|list] [auto|dark|light] - View or configure terminal theme
-/usage - Display session usage metrics and statistics
-/user [show|list|switch] - Manage GitHub user list
+/add-dir <diretório> - Adicionar um diretório à lista de acesso permitido
+/agent - Navegar e selecionar entre agentes disponíveis (se houver)
+/clear - Limpar o histórico de conversas
+/compact - Resumir histórico de conversas para reduzir uso do contexto
+/context - Mostrar uso e visualização do contexto
+/cwd [diretório] - Mudar o diretório de trabalho ou exibir o atual
+/delegate <prompt> - Delegar alterações ao repositório remoto com PR gerado por IA
+/exit, /quit - Sair do CLI
+/share [file|gist] [caminho] - Compartilhar sessão em arquivo markdown ou GitHub gist
+/feedback - Fornecer feedback sobre o CLI
+/help - Exibir ajuda para comandos interativos
+/list-dirs - Exibir todos os diretórios permitidos para acesso a arquivos
+/login - Fazer login no Copilot
+/logout - Fazer logout do Copilot
+/mcp [show|add|edit|delete|disable|enable] [nome-servidor] - Gerenciar configuração de servidor MCP
+/model [modelo] - Selecionar modelo de IA a usar
+/reset-allowed-tools - Redefinir a lista de ferramentas permitidas
+/session - Mostrar informações sobre a sessão atual do CLI
+/skills [list|info|add|remove|reload] [args...] - Gerenciar habilidades para capacidades aprimoradas
+/terminal-setup - Configurar terminal para suporte a entrada multilinha (Shift+Enter e Ctrl+Enter)
+/theme [show|set|list] [auto|dark|light] - Ver ou configurar tema do terminal
+/usage - Exibir métricas de uso e estatísticas da sessão
+/user [show|list|switch] - Gerenciar lista de usuários do GitHub
 ```

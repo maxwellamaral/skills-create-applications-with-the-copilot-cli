@@ -1,65 +1,65 @@
-## Step 3: Expand Calculator Functionality
+## Passo 3: Expandir a Funcionalidade da Calculadora
 
-Duck wants to expand the calculator with additional operations by creating a new issue and working with Copilot CLI to implement the enhancements.
+Duck quer expandir a calculadora com operações adicionais criando uma nova issue e trabalhando com o Copilot CLI para implementar as melhorias.
 
-### 📖 Theory: Iterative Development with Copilot CLI
+### 📖 Teoria: Desenvolvimento Iterativo com o Copilot CLI
 
-#### Maintaining Momentum with Copilot CLI
+#### Mantendo o Ritmo com o Copilot CLI
 
-The standalone Copilot CLI helps maintain development momentum by:
+O Copilot CLI standalone ajuda a manter o ritmo de desenvolvimento:
 
-- Quickly generating code for new features using the latest AI models
-- Suggesting best practices and patterns
-- Helping debug and test new functionality
-- Reducing context switching by keeping you in the terminal
-- Handling long-running shell commands more efficiently
-- Supporting improved automation with the headless `-p` mode
+- Gerando rapidamente código para novas funcionalidades usando os modelos de IA mais recentes
+- Sugerindo boas práticas e padrões
+- Ajudando a depurar e testar novas funcionalidades
+- Reduzindo a troca de contexto ao mantê-lo no terminal
+- Lidando com comandos shell de longa duração com mais eficiência
+- Suportando automação aprimorada com o modo headless `-p`
 
-#### Delegating Larger Tasks
+#### Delegando Tarefas Maiores
 
-For more complex tasks, you can use the `/delegate` command exampled below to assign work to the Copilot coding agent:
+Para tarefas mais complexas, você pode usar o comando `/delegate` exemplificado abaixo para atribuir trabalho ao agente de codificação do Copilot:
 
 > ```bash
 > copilot
 > ```
 >
 > ```text
-> /delegate Add modulo, exponentiation, and square root functions to calculator.js with proper error handling
+> /delegate Adicione funções de módulo, exponenciação e raiz quadrada ao calculator.js com tratamento adequado de erros
 > ```
 
-Copilot coding agent will:
+O agente de codificação do Copilot irá:
 
-1. Create a new branch automatically
-2. Open a draft pull request
-3. Work on the task autonomously
-4. Stream output to your terminal
-5. Request your review when complete
+1. Criar uma nova branch automaticamente
+2. Abrir um pull request em rascunho
+3. Trabalhar na tarefa de forma autônoma
+4. Transmitir a saída para o seu terminal
+5. Solicitar sua revisão quando concluído
 
 > [!NOTE]
-> Using the `/delegate` command to leverage the Copilot Coding Agent (CCA) will consume premium requests from your GitHub Copilot subscription. Copilot CLI can be also used with regular models, which don't use premium requests.
+> Usar o comando `/delegate` para aproveitar o Agente de Codificação do Copilot (CCA) consumirá requisições premium da sua assinatura do GitHub Copilot. O Copilot CLI também pode ser usado com modelos regulares, que não usam requisições premium.
 
-#### Testing and Improvement Workflows
+#### Fluxos de Trabalho de Teste e Melhoria
 
-As you add features, Copilot CLI can help you:
+À medida que você adiciona funcionalidades, o Copilot CLI pode ajudá-lo a:
 
-- Generate test cases for new operations
-- Suggest edge cases to consider
-- Create documentation
-- Refactor code for better maintainability
-- Save and share your development sessions using `/share`
+- Gerar casos de teste para novas operações
+- Sugerir casos extremos a considerar
+- Criar documentação
+- Refatorar código para melhor manutenibilidade
+- Salvar e compartilhar suas sessões de desenvolvimento usando `/share`
 
 > [!IMPORTANT]
-> If you have restarted your codespace you may need to run `copilot --allow-all --enable-all-github-mcp-tools` and then authenticate with GitHub again by running `!gh auth login` from within the Copilot CLI session.
+> Se você reiniciou seu codespace, pode ser necessário executar `copilot --allow-all --enable-all-github-mcp-tools` e autenticar-se com o GitHub novamente executando `!gh auth login` na sessão do Copilot CLI.
 
 > [!NOTE]
-> The `--allow-all` option in the Copilot CLI enables all permissions at once:
-> it is equivalent to `--allow-all-tools`, `--allow-all-paths`, and `--allow-all-urls`.
-> This allows the CLI to access any file path, use any tool, and access any URL without prompting for confirmation.
-> Use with caution, as it grants the CLI full access and automation capabilities.
+> A opção `--allow-all` no Copilot CLI habilita todas as permissões de uma vez:
+> é equivalente a `--allow-all-tools`, `--allow-all-paths` e `--allow-all-urls`.
+> Isso permite que o CLI acesse qualquer caminho de arquivo, use qualquer ferramenta e acesse qualquer URL sem solicitar confirmação.
+> Use com cautela, pois concede ao CLI acesso total e capacidades de automação.
 
-### ⌨️ Activity: Add More Operations to the Calculator
+### ⌨️ Atividade: Adicionar Mais Operações à Calculadora
 
-1. Start an interactive Copilot CLI session (if not already in a session):
+1. Inicie uma sessão interativa do Copilot CLI (se ainda não estiver em uma sessão):
 
    > ![Static Badge](https://img.shields.io/badge/Terminal-text?logo=gnometerminal&labelColor=0969da&color=ddf4ff)
    >
@@ -67,81 +67,81 @@ As you add features, Copilot CLI can help you:
    > copilot --allow-all --enable-all-github-mcp-tools
    > ```
 
-1. Ask Copilot CLI to help you create another issue for expanding the calculator:
+1. Peça ao Copilot CLI para ajudá-lo a criar outra issue para expandir a calculadora:
 
    > ![Static Badge](https://img.shields.io/badge/CLI-Prompt-text?style=flat-square&logo=github-copilot&labelColor=8250df&color=fbefff)
    >
    > ```prompt
-   > Create a GitHub issue for a Node.js CLI calculator app using the feature_request.md template 
-   > as the markdown format.
-   > I want to request a feature to add more operations including 
-   > - modulo
-   > - exponentiation (power)
-   > - square root
-   > Create the issue directly for the current owner and repository in this session on github.com using the `gh` CLI commands.
-   > List the issue link when complete
+   > Crie uma issue no GitHub para um aplicativo de calculadora CLI em Node.js usando o modelo feature_request.md
+   > como formato markdown.
+   > Quero solicitar uma funcionalidade para adicionar mais operações incluindo
+   > - módulo
+   > - exponenciação (potência)
+   > - raiz quadrada
+   > Crie a issue diretamente para o proprietário e repositório atual nesta sessão em github.com usando os comandos `gh` CLI.
+   > Liste o link da issue quando concluído
    > ```
 
-1. Work with Copilot CLI to implement the new operations:
+1. Trabalhe com o Copilot CLI para implementar as novas operações:
 
    > ![Static Badge](https://img.shields.io/badge/CLI-Prompt-text?style=flat-square&logo=github-copilot&labelColor=8250df&color=fbefff)
    >
    > ```prompt
-   > Add these functions to my existing calculator.js based on latest issue created:
-   > 1. modulo(a, b) - returns the remainder of a divided by b
-   > 2. power(base, exponent) - returns base raised to the exponent
-   > 3. squareRoot(n) - returns the square root of n with error handling for negative numbers
+   > Adicione estas funções ao meu calculator.js existente com base na issue mais recente criada:
+   > 1. modulo(a, b) - retorna o resto de a dividido por b
+   > 2. power(base, exponent) - retorna a base elevada ao expoente
+   > 3. squareRoot(n) - retorna a raiz quadrada de n com tratamento de erros para números negativos
    > ```
 
-   1. Optional alternatively, use the headless mode:
+   1. Opcionalmente, use o modo headless:
 
       > ![Static Badge](https://img.shields.io/badge/CLI-Prompt-text?style=flat-square&logo=github-copilot&labelColor=8250df&color=fbefff)
       >
       > ```prompt
-      > copilot -p "Add these functions to my existing calculator.js based on latest issue created:
-      > 1. modulo(a, b) - returns the remainder of a divided by b
-      > 2. power(base, exponent) - returns base raised to the exponent
-      > 3. squareRoot(n) - returns the square root of n with error handling for negative numbers"
+      > copilot -p "Adicione estas funções ao meu calculator.js existente com base na issue mais recente criada:
+      > 1. modulo(a, b) - retorna o resto de a dividido por b
+      > 2. power(base, exponent) - retorna a base elevada ao expoente
+      > 3. squareRoot(n) - retorna a raiz quadrada de n com tratamento de erros para números negativos"
       > ```
 
-1. Test your new functions and add tests:
+1. Teste suas novas funções e adicione testes:
 
    > ![Static Badge](https://img.shields.io/badge/CLI-Prompt-text?style=flat-square&logo=github-copilot&labelColor=8250df&color=fbefff)
    >
    > ```prompt
-   > Add tests for the new calculator operations: 
-   > - Expand tests based on the following example:
+   > Adicione testes para as novas operações da calculadora:
+   > - Expanda os testes com base no seguinte exemplo:
    >   - @images/calc-extended-operations.png
-   > - Add new tests for the new operations to the existing src/tests/calculator.test.js file
-   > - Use a popular Node.js testing framework if one isn't installed
-   > - Make sure to include edge case tests like square root of negative numbers
-   > - Make sure all tests run and pass
+   > - Adicione novos testes para as novas operações ao arquivo src/tests/calculator.test.js existente
+   > - Use um framework de testes Node.js popular se não houver um instalado
+   > - Certifique-se de incluir testes de casos extremos como raiz quadrada de números negativos
+   > - Certifique-se de que todos os testes sejam executados e passem
    > ```
 
-1. Commit your changes:
+1. Faça commit das alterações:
 
    > ![Static Badge](https://img.shields.io/badge/CLI-Prompt-text?style=flat-square&logo=github-copilot&labelColor=8250df&color=fbefff)
    >
    > ```prompt
-   > Add all calculator and test files to git.
-   > Commit with message "Implemented additional calculator operations and tests: 
-   > modulo, power, square root" 
-   > Push the changes
+   > Adicione todos os arquivos da calculadora e de testes ao git.
+   > Faça commit com a mensagem "Implemented additional calculator operations and tests: 
+   > modulo, power, square root"
+   > Envie as alterações
    > ```
 
-1. Wait a moment for Mona to check your work, provide feedback, and share the next lesson.
+1. Aguarde um momento para Mona verificar seu trabalho, fornecer feedback e compartilhar a próxima lição.
 
 > [!TIP]
-> Use `/share gist` in your Copilot CLI session to save your GitHub Skills exercise session as a GitHub gist for future reference!
+> Use `/share gist` na sua sessão do Copilot CLI para salvar sua sessão do exercício do GitHub Skills como um GitHub gist para referência futura!
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>Tendo problemas? 🤷</summary><br/>
 
-- Make sure your issue title includes "Calculator" or "Operations"
-- The calculator.js file should export functions that can be required/imported
-- You can test operations manually using Node.js REPL: `node` then type your code
-- For square root of negative numbers, consider returning `NaN` or throwing an error
-- Remember to commit and push any code changes you make
-- Use `copilot --help` to see all available command options
+- Certifique-se de que o título da issue inclua "Calculator" ou "Operations"
+- O arquivo calculator.js deve exportar funções que possam ser importadas/requeridas
+- Você pode testar operações manualmente usando o REPL do Node.js: `node` e então digitar seu código
+- Para raiz quadrada de números negativos, considere retornar `NaN` ou lançar um erro
+- Lembre-se de fazer commit e enviar quaisquer alterações de código que você fizer
+- Use `copilot --help` para ver todas as opções de comando disponíveis
 
 </details>
