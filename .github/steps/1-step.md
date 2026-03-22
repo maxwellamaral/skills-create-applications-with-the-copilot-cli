@@ -9,7 +9,7 @@ Duck está se preparando para desenvolver um novo aplicativo de calculadora CLI 
 
 O GitHub Copilot CLI é um **aplicativo de terminal standalone** que traz o poder do GitHub Copilot diretamente para sua linha de comando. Ele é instalado via npm e oferece uma experiência interativa rica para desenvolvedores.
 
-<img width="60%" height="60%" alt="CopilotCLI" src="../images/copilot-cli.png" />
+<img width="60%" height="60%" alt="CopilotCLI" src="https://github.com/maxwellamaral/skills-create-applications-with-the-copilot-cli/blob/main/.github/images/copilot-cli.png?raw=true" />
 
 #### As principais capacidades e opções a serem conhecidas incluem:
 
@@ -123,9 +123,9 @@ Os modelos de issue ajudam a manter a consistência quando membros da equipe cri
 > [!NOTE]
 > Ao iniciar o Copilot CLI, pode ser solicitado que você adicione esta pasta à lista de pastas confiáveis e configure as ligações de teclas. Responda **sim** a ambas as solicitações para continuar.
 
-<img width="60%" height="60%" alt="CopilotCLIAddDir" src="../images/copilot-cli-add-directory.png" />
+<img width="60%" height="60%" alt="CopilotCLIAddDir" src="https://github.com/maxwellamaral/skills-create-applications-with-the-copilot-cli/blob/main/.github/images/copilot-cli-add-directory.png?raw=true" />
 <br />
-<img width="60%" height="60%" alt="CopilotCLITerminalBindings" src="../images/copilot-cli-terminal-bindings.png" />
+<img width="60%" height="60%" alt="CopilotCLITerminalBindings" src="https://github.com/maxwellamaral/skills-create-applications-with-the-copilot-cli/blob/main/.github/images/copilot-cli-terminal-bindings.png?raw=true" />
 
 
 2. Autorize com o GitHub (se ainda não autenticado) no Copilot CLI:
@@ -200,7 +200,7 @@ Os modelos de issue ajudam a manter a consistência quando membros da equipe cri
 > Responda **sim** para criar a issue e
 > **"Sim, e aprove `gh issue` ou `git config` para o restante da sessão em execução"**.
 
-<img width="60%" height="60%" alt="CopilotCLIPerms" src="../images/copilot-cli-permissions.png" />
+<img width="60%" height="60%" alt="CopilotCLIPerms" src="https://github.com/maxwellamaral/skills-create-applications-with-the-copilot-cli/blob/main/.github/images/copilot-cli-permissions.png?raw=true" />
 
 <details>
 <summary>Tendo problemas? 🤷</summary><br/>
