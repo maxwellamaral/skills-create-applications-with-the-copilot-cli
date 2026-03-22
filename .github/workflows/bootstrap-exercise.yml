@@ -11,13 +11,21 @@ permissions:
   actions: write
 
 jobs:
-  create-issue:
-    name: Step 1 - Create Calculator Issue
+  bootstrap:
+    name: Bootstrap Calculator Exercise
     runs-on: ubuntu-latest
-    outputs:
-      issue-created: ${{ steps.create-issue.outputs.created }}
 
     steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Fetch calculator files from PR branch
+        run: |
+          git fetch origin copilot/execute-mona-instructions
+
       - name: Check if calculator issue already exists
         id: check-issue
         run: |
@@ -75,26 +83,14 @@ jobs:
 
           Esta é uma calculadora Node.js básica para fins de aprendizado com o GitHub Copilot CLI. O arquivo \`src/calculator.js\` deve incluir tratamento de erros para operações inválidas como divisão por zero." \
             --label "enhancement")
-          echo "created=true" >> $GITHUB_OUTPUT
           echo "Created issue: $ISSUE_URL"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  create-calc-branch:
-    name: Step 2 - Create Calculator Branch
-    runs-on: ubuntu-latest
-    needs: create-issue
-
-    steps:
-      - name: Checkout PR branch
-        uses: actions/checkout@v5
-        with:
-          ref: copilot/execute-mona-instructions
-          fetch-depth: 0
-
-      - name: Wait for Step 1 workflow to complete
+      - name: Wait for Step 1 workflow to enable Step 2
+        if: steps.create-issue.conclusion == 'success' || steps.check-issue.outputs.exists == 'false'
         run: |
-          echo "Waiting 3 minutes for Step 1 workflow to process the issue..."
+          echo "Waiting for Step 1 workflow to process the new issue and enable Step 2..."
           sleep 180
 
       - name: Check if create-calc-app branch already exists
@@ -107,71 +103,109 @@ jobs:
             echo "exists=false" >> $GITHUB_OUTPUT
             echo "Branch create-calc-app does not exist yet"
           fi
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create create-calc-app branch with calculator code
+      - name: Create create-calc-app branch with calculator files from main
         if: steps.check-branch.outputs.exists == 'false'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Create branch from main
           git checkout -b create-calc-app
+
+          # Copy calculator files from the PR branch
+          git checkout origin/copilot/execute-mona-instructions -- src/
+
+          # Commit only the calculator files
+          git add src/
+          git commit -m "Implement basic calculator operations and tests: addition, subtraction, multiplication, division"
           git push origin create-calc-app
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Update existing create-calc-app branch if needed
-        if: steps.check-branch.outputs.exists == 'true'
+      - name: Wait for Step 2 workflow to process
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git fetch origin create-calc-app
-          # If the calculator files don't exist on create-calc-app, push them
-          if ! git ls-remote origin create-calc-app | grep -q "create-calc-app"; then
-            git checkout -b create-calc-app origin/create-calc-app 2>/dev/null || git checkout create-calc-app
-            git merge copilot/execute-mona-instructions --no-edit -X theirs
-            git push origin create-calc-app
-          fi
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  wait-and-trigger-step3:
-    name: Step 3 - Wait for Step 2 and trigger Step 3
-    runs-on: ubuntu-latest
-    needs: create-calc-branch
-
-    steps:
-      - name: Wait for Step 2 workflow to complete
-        run: |
-          echo "Waiting 3 minutes for Step 2 workflow to process..."
+          echo "Waiting for Step 2 workflow to check the code..."
           sleep 180
 
-      - name: Checkout create-calc-app branch
-        uses: actions/checkout@v5
-        with:
-          ref: create-calc-app
-          fetch-depth: 0
-
-      - name: Touch test file to trigger Step 3 workflow
+      - name: Trigger Step 3 by pushing test file change
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # Add a small comment to calculator.test.js to trigger Step 3
+
+          # Fetch latest create-calc-app state
+          git fetch origin create-calc-app
+          git checkout create-calc-app 2>/dev/null || git checkout -b create-calc-app origin/create-calc-app
+
+          # Touch the test file to ensure Step 3 triggers
           echo "" >> src/tests/calculator.test.js
           git add src/tests/calculator.test.js
-          git commit -m "Ensure tests trigger Step 3 workflow check" || echo "No changes to commit"
+          git diff --cached --quiet || git commit -m "Ensure calculator tests are tracked for Step 3"
           git push origin create-calc-app
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  disable-bootstrap:
-    name: Disable Bootstrap Workflow
-    runs-on: ubuntu-latest
-    needs: [create-issue, create-calc-branch, wait-and-trigger-step3]
-    if: always()
+      - name: Wait for Step 3 workflow to process
+        run: |
+          echo "Waiting for Step 3 workflow to check the tests..."
+          sleep 180
 
-    steps:
+      - name: Create PR from create-calc-app to main
+        id: create-pr
+        run: |
+          PR_URL=$(gh pr create \
+            --repo ${{ github.repository }} \
+            --title "Implement Node.js CLI Calculator with Arithmetic Operations" \
+            --body "## Resumo
+
+          Este PR implementa o aplicativo de calculadora Node.js CLI conforme solicitado na issue.
+
+          ## Mudanças
+
+          - Adicionado \`src/calculator.js\` com as quatro operações aritméticas básicas:
+            - addition (adição)
+            - subtraction (subtração)
+            - multiplication (multiplicação)
+            - division (divisão)
+            - Funções extras: modulo, power, squareRoot
+          - Adicionado \`src/tests/calculator.test.js\` com testes abrangentes incluindo:
+            - Casos básicos para todas as operações
+            - Casos extremos (divisão por zero, raiz quadrada de número negativo)
+            - Testes de modulo, power, e square root
+
+          ## Como Testar
+
+          \`\`\`bash
+          node src/calculator.js addition 5 3
+          node src/calculator.js division 10 2
+          node src/tests/calculator.test.js
+          \`\`\`" \
+            --base main \
+            --head create-calc-app)
+          echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
+          echo "Created PR: $PR_URL"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Wait and merge PR
+        if: steps.create-pr.outputs.pr_url != ''
+        run: |
+          echo "Waiting for PR checks to complete before merging..."
+          sleep 30
+
+          # Get PR number from URL
+          PR_NUMBER=$(echo "${{ steps.create-pr.outputs.pr_url }}" | grep -oE '[0-9]+$')
+          echo "Merging PR #$PR_NUMBER"
+
+          gh pr merge $PR_NUMBER \
+            --repo ${{ github.repository }} \
+            --merge \
+            --subject "Merge calculator implementation into main"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Disable this bootstrap workflow
+        if: always()
         run: |
           gh workflow disable "Bootstrap Exercise Steps"
         env:
